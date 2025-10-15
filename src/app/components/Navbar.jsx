@@ -3,35 +3,11 @@ import Link from "next/link";
 import React, { useEffect, useState } from "react";
 
 const Navbar = () => {
-  const [show, setShow] = useState(true);
-  const [lastScrollY, setLastScrollY] = useState(0);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const currentY = window.scrollY;
-
-      if (currentY > lastScrollY && currentY > 50) {
-        // scrolling down
-        setShow(false);
-      } else {
-        // scrolling up
-        setShow(true);
-      }
-
-      setLastScrollY(currentY);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [lastScrollY]);
-
   const [isOpen, setIsOpen] = useState(false);
   return (
     <nav
-      className={`fixed top-0 w-full ${isOpen ? "h-screen" : "h-20"} ${
-        // scrolled ? "" : "" ""
-        ""
-      } duration-700 ease-in-out transition-all z-50`}
+      className={`fixed top-0 w-full ${isOpen ? "h-screen" : "h-24"} 
+       duration-700 ease-in-out transition-all z-50`}
     >
       <div className="max-w-[1440px] mx-auto flex justify-center items-center h-full w-full ">
         {isOpen && <div>content</div>}
@@ -39,7 +15,7 @@ const Navbar = () => {
 
       {/* center logo container */}
       <div className="absolute top-0 py-2 w-full flex justify-center items-center h-full">
-        <Link href={"/"} className="scale-80">
+        <Link href={"/"} className="scale-100">
           <svg
             width="81"
             height="47"
