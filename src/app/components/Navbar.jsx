@@ -15,7 +15,7 @@ const Navbar = () => {
 
       {/* center logo container */}
       <div className="absolute top-0 py-2 w-full flex justify-center items-center h-full">
-        <Link href={"/"} className="scale-100">
+        <Link href={"/"} className="scale-90">
           <svg
             width="81"
             height="47"
