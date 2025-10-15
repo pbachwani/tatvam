@@ -1,22 +1,49 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #f2f2f2;
+  --foreground: #201e1b;
+  --font-andale: "Andale Mono";
+  --font-calibri: "Calibri";
+  --font-minion: "Minion Pro";
 }
+
+/* 
+
+[font-family:var(--font-andale)] 
+[font-family:var(--font-calibri)]
+[font-family:var(--font-minion)]
+
+*/
+
+@font-face {
+  font-family: "Andale Mono";
+  src: url("/fonts/andalemono.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Calibri";
+  src: url("/fonts/calibri.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Minion Pro";
+  src: url("/fonts/Minion-Pro-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* [font-family:var(--font-knockout)] */
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  /* --font-andale: var(--font-andale); */
 }
 
 body {
