@@ -31,9 +31,9 @@ const projects = [
         "/images/tatvam-vas/8C5A1578.jpg",
         "/images/tatvam-vas/8C5A1588.jpg",
         "/images/tatvam-vas/8C5A1590.jpg",
-        "/images/tatvam-vas/8C5A1592.jpg",
-        "/images/tatvam-vas/8C5A1594.jpg",
-        "/images/tatvam-vas/8C5A1597-2.jpg",
+        // "/images/tatvam-vas/8C5A1592.jpg",
+        // "/images/tatvam-vas/8C5A1594.jpg",
+        // "/images/tatvam-vas/8C5A1597-2.jpg",
       ],
       extras: [
         {

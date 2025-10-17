@@ -1,6 +1,7 @@
 import { projects } from "@/app/constants/data";
 import Image from "next/image";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import FramerCarousel from "@/app/components/FramerCarousel";
 
 // Export this function from your dynamic route file!
 export async function generateStaticParams() {
@@ -47,25 +48,28 @@ export default async function ProjectDetail({ params }) {
         </div>
 
         {/* Carousel */}
-        {project.images.carousel && project.images.carousel.length > 0 && (
-          <div className="w-full min-w-screen my-12 relative">
-            <div className="relative w-full">
-              {/* Custom carousel logic goes here (replace with your carousel solution) */}
-              <div className="w-full h-screen overflow-hidden">
-                <img
-                  src={project.images.carousel[1]}
-                  alt={`Project ${project.name} slide`}
-                  className="object-cover w-full h-full"
-                />
-                {/* Replace this sample image with a proper carousel if needed */}
-              </div>
-              <div className="absolute top-0 w-full h-full flex justify-between items-center ">
-                <ChevronLeft className="size-20 font-extralight" />
 
-                <ChevronRight className="size-20 font-extralight" />
-              </div>
-            </div>
-          </div>
+        {project.images.carousel && project.images.carousel.length > 0 && (
+          <FramerCarousel project={project} />
+
+          // <div className="w-full min-w-screen my-12 relative">
+          //   <div className="relative w-full">
+          //     {/* Custom carousel logic goes here (replace with your carousel solution) */}
+          //     <div className="w-full h-screen overflow-hidden">
+          //       <img
+          //         src={project.images.carousel[1]}
+          //         alt={`Project ${project.name} slide`}
+          //         className="object-cover w-full h-full"
+          //       />
+          //       {/* Replace this sample image with a proper carousel if needed */}
+          //     </div>
+          //     <div className="absolute top-0 w-full h-full flex justify-between items-center ">
+          //       <ChevronLeft className="size-20 font-extralight" />
+
+          //       <ChevronRight className="size-20 font-extralight" />
+          //     </div>
+          //   </div>
+          // </div>
         )}
 
         {/* main description for project */}
