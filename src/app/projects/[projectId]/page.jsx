@@ -18,7 +18,7 @@ export default async function ProjectDetail({ params }) {
 
   return (
     <>
-      <div className="min-h-screen flex flex-col items-center py-12 px-4 md:px-8">
+      <div className="min-h-screen flex flex-col items-center py-12 px-4 md:px-8 snap-y snap-mandatory overflow-y-scroll">
         {/* Top content: text, illustration/sketch, and main image */}
         <div className="w-full max-w-7xl flex flex-col md:flex-row justify-between py-12">
           {/* Left Column: Text */}
@@ -50,7 +50,9 @@ export default async function ProjectDetail({ params }) {
         {/* Carousel */}
 
         {project.images.carousel && project.images.carousel.length > 0 && (
-          <FramerCarousel project={project} />
+          <div className="snap-start">
+            <FramerCarousel project={project} />
+          </div>
 
           // <div className="w-full min-w-screen my-12 relative">
           //   <div className="relative w-full">
@@ -73,7 +75,7 @@ export default async function ProjectDetail({ params }) {
         )}
 
         {/* main description for project */}
-        <div className="w-full max-w-6xl my-24">
+        <div className="w-full max-w-7xl my-24">
           <h1 className="[font-family:var(--font-andale)] text-4xl tracking-tight">
             {project.name}
           </h1>
@@ -85,25 +87,26 @@ export default async function ProjectDetail({ params }) {
         {/* Extras Images */}
         {project.images.extras && project.images.extras.length > 0 && (
           // <div className="w-full max-w-7xl grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
-          <div className="min-h-screen flex flex-col justify-center items-center h-full">
+          <div className="min-h-screen flex flex-col justify-center items-center h-full max-w-7xl">
             {project.images.extras.map((extra, i) => (
               <div
                 key={i}
-                className="w-full max-w-7xl flex flex-col md:flex-row justify-between py-12"
+                className={`w-full max-w-7xl flex flex-col ${
+                  i % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
+                } justify-between py-12`}
               >
                 {/* left Column: Main Image with illustration */}
-                <div className="flex-1 flex justify-center items-start">
-                  <div className="relative w-[420px] h-auto bg-blue-300">
+                <div
+                  className={`flex-1 flex ${
+                    i % 2 === 0 ? "justify-start" : "justify-end"
+                  } items-start`}
+                >
+                  <div className="relative w-[420px] h-auto ">
                     <img
                       src={extra.image}
                       alt={project.name}
                       className="object-contain rounded-md"
                     />
-                    {/* <img
-                      src={project.images.illustration}
-                      alt={`${project.name} illustration`}
-                      className="object-cover pointer-events-none absolute hidden md:block md:top-50 md:right-60"
-                    /> */}
                   </div>
                 </div>
 
