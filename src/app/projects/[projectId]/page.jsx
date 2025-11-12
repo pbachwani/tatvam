@@ -26,7 +26,7 @@ export default async function ProjectDetail({ params }) {
             <h1 className="text-xl md:text-2xl uppercase mb-5 [font-family:var(--font-andale)] tracking-tighter">
               {project.name}
             </h1>
-            <div className="text-[15px] mb-4 text-neutral-700 leading-relaxed [font-family:var(--font-andale)] tracking-wide">
+            <div className="text-[15px] mb-4 text-neutral-700 leading-relaxed [font-family:var(--font-andale)] tracking-tight">
               {project.description.intro}
             </div>
           </div>
@@ -54,14 +54,14 @@ export default async function ProjectDetail({ params }) {
         )}
 
         {/* main description for project */}
-        <div className="w-full max-w-7xl my-24">
-          <h1 className="[font-family:var(--font-andale)] text-4xl tracking-tight">
+        {/* <div className="w-full max-w-7xl my-24">
+          <h1 className="[font-family:var(--font-andale)] text-4xl tracking-tight uppercase">
             {project.name}
           </h1>
-          <div className="text-[15px] text-neutral-700 leading-relaxed [font-family:var(--font-andale)] tracking-wide mt-4">
+          <div className="text-[15px] text-neutral-700 leading-relaxed [font-family:var(--font-andale)] tracking-wide mt-4 ">
             {project.description.description}
           </div>
-        </div>
+        </div> */}
 
         {/* Extras Images */}
         {project.images.extras && project.images.extras.length > 0 && (
@@ -75,9 +75,9 @@ export default async function ProjectDetail({ params }) {
               >
                 {/* right Column: Text */}
                 <div className="flex-1 flex flex-col justify-start items-start">
-                  <h1 className="text-xl md:text-2xl uppercase mb-5 [font-family:var(--font-andale)] tracking-tighter">
+                  {/* <h1 className="text-xl md:text-2xl uppercase mb-5 [font-family:var(--font-andale)] tracking-tighter">
                     {extra.heading}
-                  </h1>
+                  </h1> */}
                   <div className="text-[15px] mb-4 text-neutral-700 leading-relaxed [font-family:var(--font-andale)] tracking-wide">
                     {extra.text}
                   </div>

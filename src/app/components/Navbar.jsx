@@ -26,20 +26,14 @@ const Navbar = () => {
           </svg>
         </Link>
       </div>
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{
-          opacity: 1,
-          transition: {
-            duration: 0.5,
-            delay: 2,
-          },
-        }}
-        exit={{ opacity: 0 }}
-        className="max-w-[1440px] mx-auto flex justify-center items-center h-full w-full"
-      >
-        <AnimatePresence>
-          {isOpen && (
+      <AnimatePresence mode="wait">
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1, transition: { duration: 1, delay: 0.5 } }}
+            exit={{ opacity: 0, duration: 0.5 }}
+            className="max-w-[1440px] mx-auto flex justify-center items-center h-full w-full"
+          >
             <div className="w-full h-screen grid grid-cols-3 gap-0 place-items-center">
               <div className="flex flex-col justify-between items-center h-[50vh] w-full">
                 <div className="flex justify-center items-center">
@@ -55,16 +49,20 @@ const Navbar = () => {
                 <div className="flex justify-center items-center">bottom</div>
               </div>
               <div className="flex flex-col justify-between items-center h-[50vh] w-full">
-                <div className="flex justify-center items-center">
-                  <Link href={"/contact"}>Contact</Link>
-                </div>
+                <Link
+                  href={"/contact"}
+                  className="flex justify-center items-center"
+                >
+                  Contact
+                </Link>
+
                 <div>some link</div>
                 <div className="flex justify-center items-center">bottom</div>
               </div>
             </div>
-          )}
-        </AnimatePresence>
-      </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       {/* center logo container */}
       <button

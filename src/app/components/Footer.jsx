@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React from "react";
 
@@ -17,13 +18,13 @@ const Footer = () => {
             <h2 className="tracking-widest text-lg sm:text-xl mb-6">
               LET US BUILD YOUR DREAM
             </h2>
-            <button className="border px-6 py-2 rounded-full tracking-widest text-base transition-colors focus:outline-none hover:bg-black hover:text-white duration-300 ease-out">
-              CONTACT US
+            <button className="border px-6 py-2 rounded-full tracking-widest text-base transition-colors focus:outline-none hover:bg-[#AB5F4E] hover:border-[#AB5F4E] hover:text-white duration-300 ease-out hover:cursor-pointer">
+              <Link href={"/contact"}>CONTACT US</Link>
             </button>
           </div>
           <ul className="space-y-2 flex flex-col md:flex-col md:items-end items-start w-full">
             <li className="cursor-pointer hover:text-[#AB5F4E] transition-colors duration-200 ease-out">
-              ABOUT US
+              <Link href={"/about"}>ABOUT US</Link>
             </li>
             <li className="cursor-pointer hover:text-[#AB5F4E] transition-colors duration-200 ease-out">
               TATVAM TALKS
