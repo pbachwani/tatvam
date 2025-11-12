@@ -1,19 +1,15 @@
 "use client";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
+import { AnimatePresence, motion } from "motion/react";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   return (
     <nav
-      className={`fixed top-0 w-full ${isOpen ? "h-screen" : "h-24"} 
-       duration-700 ease-in-out transition-all z-50`}
+      className={`fixed top-0 w-full ${isOpen ? "h-screen bg-white" : "h-24"} 
+       duration-1000 ease-in-out transition-all z-50`}
     >
-      <div className="max-w-[1440px] mx-auto flex justify-center items-center h-full w-full ">
-        {isOpen && <div>content</div>}
-      </div>
-
-      {/* center logo container */}
       <div className="absolute top-0 py-2 w-full flex justify-center items-center h-full">
         <Link href={"/"} className="scale-90">
           <svg
@@ -30,6 +26,47 @@ const Navbar = () => {
           </svg>
         </Link>
       </div>
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{
+          opacity: 1,
+          transition: {
+            duration: 0.5,
+            delay: 2,
+          },
+        }}
+        exit={{ opacity: 0 }}
+        className="max-w-[1440px] mx-auto flex justify-center items-center h-full w-full"
+      >
+        <AnimatePresence>
+          {isOpen && (
+            <div className="w-full h-screen grid grid-cols-3 gap-0 place-items-center">
+              <div className="flex flex-col justify-between items-center h-[50vh] w-full">
+                <div className="flex justify-center items-center">
+                  <Link href={"/contact"}>Contact</Link>
+                </div>
+                <div>some link</div>
+                <div className="flex justify-center items-center">bottom</div>
+              </div>
+              <div className="flex flex-col justify-between items-center h-[50vh] w-full">
+                <div className="flex justify-center items-center">
+                  <Link href={"/contact"}>Contact</Link>
+                </div>
+                <div className="flex justify-center items-center">bottom</div>
+              </div>
+              <div className="flex flex-col justify-between items-center h-[50vh] w-full">
+                <div className="flex justify-center items-center">
+                  <Link href={"/contact"}>Contact</Link>
+                </div>
+                <div>some link</div>
+                <div className="flex justify-center items-center">bottom</div>
+              </div>
+            </div>
+          )}
+        </AnimatePresence>
+      </motion.div>
+
+      {/* center logo container */}
       <button
         className="absolute top-4 right-10"
         onClick={() => setIsOpen(!isOpen)}

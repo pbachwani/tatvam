@@ -24,9 +24,9 @@ export default function FramerCarousel({ project }) {
     }
   }, [index, x, isDragging]);
   return (
-    <div className="w-full min-w-screen min-h-[calc(100vh+10px)] my-12">
-      <div className="flex flex-col gap-3">
-        <div className="relative overflow-hidden" ref={containerRef}>
+    <div className="w-screen min-h-[calc(100vh+10px)] my-12 snap-me">
+      <div className="flex flex-col gap-3 h-full">
+        <div className="relative overflow-hidden " ref={containerRef}>
           <motion.div
             className="flex"
             drag="x"
@@ -52,7 +52,7 @@ export default function FramerCarousel({ project }) {
             {items.map((item, i) => (
               <div
                 key={i}
-                className="flex-shrink-0 w-full max-h-[calc(100vh+10px)]"
+                className="flex-shrink-0 w-full min-h-screen max-h-[calc(100vh+10px)]"
               >
                 <img
                   src={item}
@@ -114,19 +114,17 @@ export default function FramerCarousel({ project }) {
             </svg>
           </motion.button>
 
-          {!isMobile && (
-            <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-2">
-              {items.map((_, i) => (
-                <button
-                  key={i}
-                  onClick={() => setIndex(i)}
-                  className={`h-1.5 w-1.5 rounded-none transition-all ${
-                    i === index ? "w-8 bg-white" : "w-1.5 bg-white/50"
-                  }`}
-                />
-              ))}
-            </div>
-          )}
+          <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-2 max-sm:hidden">
+            {items.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => setIndex(i)}
+                className={`h-1.5 w-1.5 rounded-none transition-all ${
+                  i === index ? "w-8 bg-white" : "w-1.5 bg-white/50"
+                }`}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </div>

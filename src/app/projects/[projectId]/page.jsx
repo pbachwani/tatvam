@@ -18,7 +18,7 @@ export default async function ProjectDetail({ params }) {
 
   return (
     <>
-      <div className="min-h-screen flex flex-col items-center py-12 px-4 md:px-8 snap-y snap-mandatory overflow-y-scroll">
+      <div className="min-h-screen flex flex-col items-center py-12 px-4 md:px-8 overflow-x-clip">
         {/* Top content: text, illustration/sketch, and main image */}
         <div className="w-full max-w-7xl flex flex-col md:flex-row justify-between py-12">
           {/* Left Column: Text */}
@@ -32,11 +32,11 @@ export default async function ProjectDetail({ params }) {
           </div>
           {/* Right Column: Main Image with illustration */}
           <div className="flex-1 flex justify-center items-start">
-            <div className="relative w-[420px] h-auto bg-blue-300">
+            <div className="relative w-[420px] h-auto">
               <img
                 src={project.images.main}
                 alt={project.name}
-                className="object-contain rounded-md"
+                className="object-contain"
               />
               <img
                 src={project.images.illustration}
@@ -50,28 +50,7 @@ export default async function ProjectDetail({ params }) {
         {/* Carousel */}
 
         {project.images.carousel && project.images.carousel.length > 0 && (
-          <div className="snap-start">
-            <FramerCarousel project={project} />
-          </div>
-
-          // <div className="w-full min-w-screen my-12 relative">
-          //   <div className="relative w-full">
-          //     {/* Custom carousel logic goes here (replace with your carousel solution) */}
-          //     <div className="w-full h-screen overflow-hidden">
-          //       <img
-          //         src={project.images.carousel[1]}
-          //         alt={`Project ${project.name} slide`}
-          //         className="object-cover w-full h-full"
-          //       />
-          //       {/* Replace this sample image with a proper carousel if needed */}
-          //     </div>
-          //     <div className="absolute top-0 w-full h-full flex justify-between items-center ">
-          //       <ChevronLeft className="size-20 font-extralight" />
-
-          //       <ChevronRight className="size-20 font-extralight" />
-          //     </div>
-          //   </div>
-          // </div>
+          <FramerCarousel project={project} />
         )}
 
         {/* main description for project */}
@@ -86,8 +65,7 @@ export default async function ProjectDetail({ params }) {
 
         {/* Extras Images */}
         {project.images.extras && project.images.extras.length > 0 && (
-          // <div className="w-full max-w-7xl grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
-          <div className="min-h-screen flex flex-col justify-center items-center h-full max-w-7xl">
+          <div className="w-full min-h-screen flex flex-col justify-center items-center h-full max-w-7xl">
             {project.images.extras.map((extra, i) => (
               <div
                 key={i}
@@ -95,28 +73,28 @@ export default async function ProjectDetail({ params }) {
                   i % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
                 } justify-between py-12`}
               >
+                {/* right Column: Text */}
+                <div className="flex-1 flex flex-col justify-start items-start">
+                  <h1 className="text-xl md:text-2xl uppercase mb-5 [font-family:var(--font-andale)] tracking-tighter">
+                    {extra.heading}
+                  </h1>
+                  <div className="text-[15px] mb-4 text-neutral-700 leading-relaxed [font-family:var(--font-andale)] tracking-wide">
+                    {extra.text}
+                  </div>
+                </div>
+
                 {/* left Column: Main Image with illustration */}
                 <div
                   className={`flex-1 flex ${
-                    i % 2 === 0 ? "justify-start" : "justify-end"
+                    i % 2 === 0 ? "justify-end" : "justify-start"
                   } items-start`}
                 >
                   <div className="relative w-[420px] h-auto ">
                     <img
                       src={extra.image}
                       alt={project.name}
-                      className="object-contain rounded-md"
+                      className="object-contain"
                     />
-                  </div>
-                </div>
-
-                {/* right Column: Text */}
-                <div className="flex-1 md:pr-12 flex flex-col justify-start items-start">
-                  <h1 className="text-xl md:text-2xl uppercase mb-5 [font-family:var(--font-andale)] tracking-tighter">
-                    {extra.heading}
-                  </h1>
-                  <div className="text-[15px] mb-4 text-neutral-700 leading-relaxed [font-family:var(--font-andale)] tracking-wide">
-                    {extra.text}
                   </div>
                 </div>
               </div>

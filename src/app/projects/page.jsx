@@ -7,7 +7,7 @@ import { projects } from "../constants/data";
 export default function ProjectsPage() {
   return (
     <div className="min-h-screen py-12 px-4">
-      <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-y-16 gap-x-12">
+      <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-y-60 gap-x-12">
         {projects.map((project) => (
           <Link
             key={project.id}

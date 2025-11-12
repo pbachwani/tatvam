@@ -3,6 +3,7 @@ import "./globals.css";
 import Navbar from "./components/Navbar";
 import localFont from "next/font/local";
 import { ReactLenis } from "lenis/react";
+import Footer from "./components/Footer";
 
 // font logic moved to globals.css
 
@@ -19,6 +20,7 @@ export default function RootLayout({ children }) {
         <ReactLenis root />
         <Navbar />
         <div className="mt-16">{children}</div>
+        <Footer />
       </body>
     </html>
   );
