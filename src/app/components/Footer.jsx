@@ -33,7 +33,7 @@ const Footer = () => {
               STORIES OF TATVAM
             </li>
             <li className="cursor-pointer hover:text-[#AB5F4E] transition-colors duration-200 ease-out">
-              CAREERS AT TATVAM
+              <Link href={"/career"}>CAREERS AT TATVAM</Link>
             </li>
             <li className="cursor-pointer hover:text-[#AB5F4E] transition-colors duration-200 ease-out">
               FOLLOW TATVAM JAIPUR

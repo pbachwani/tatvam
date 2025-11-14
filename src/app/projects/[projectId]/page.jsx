@@ -18,11 +18,11 @@ export default async function ProjectDetail({ params }) {
 
   return (
     <>
-      <div className="min-h-screen flex flex-col items-center py-12 px-4 md:px-8 overflow-x-clip">
+      <div className="min-h-screen flex flex-col items-center px-4 md:px-8 overflow-x-clip">
         {/* Top content: text, illustration/sketch, and main image */}
-        <div className="w-full max-w-7xl flex flex-col md:flex-row justify-between py-12">
+        <div className="w-full h-screen max-w-7xl flex flex-col md:flex-row justify-between pt-24">
           {/* Left Column: Text */}
-          <div className="flex-1 md:pr-12 flex flex-col justify-start items-start">
+          <div className="h-fit md:pr-12 flex flex-col justify-start items-start">
             <h1 className="text-xl md:text-2xl uppercase mb-5 [font-family:var(--font-andale)] tracking-tighter">
               {project.name}
             </h1>
@@ -31,7 +31,7 @@ export default async function ProjectDetail({ params }) {
             </div>
           </div>
           {/* Right Column: Main Image with illustration */}
-          <div className="flex-1 flex justify-center items-start">
+          <div className="h-fit flex justify-center items-start">
             <div className="relative w-[420px] h-auto">
               <img
                 src={project.images.main}
